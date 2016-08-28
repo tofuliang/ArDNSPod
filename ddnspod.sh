@@ -76,8 +76,8 @@ arPass=""
 # Get Domain IP
 # arg: domain
 arNslookup() {
-    #wget --quiet --output-document=- $inter$1
-    echo ""
+    local dnsvr="114.114.114.114"
+    nslookup ${1} $dnsvr | tr -d '\n[:blank:]' | sed 's/.\+1 \([0-9\.]\+\)/\1/'
 }
 
 # Get data
